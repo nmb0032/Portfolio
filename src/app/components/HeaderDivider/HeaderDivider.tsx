@@ -7,11 +7,17 @@ interface HeadingDividerProps {
 export function HeadingDivider({ title = '' }: HeadingDividerProps) {
   return (
     <header>
-      <Box display={'flex'} style={{ alignItems: 'center' }}>
-        <Title order={1} style={{ textTransform: 'uppercase' }}>
+      <Box
+        display={'flex'}
+        style={{ alignItems: 'center', justifyContent: 'center' }}
+      >
+        <Title
+          order={1}
+          className="title"
+          style={{ textTransform: 'uppercase' }}
+        >
           {title}
         </Title>
-        <Divider mx={10} style={{ flex: 1 }} color="gray" size={'md'} />
       </Box>
     </header>
   );

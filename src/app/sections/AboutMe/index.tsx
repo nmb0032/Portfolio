@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, Container, Text } from '@mantine/core';
-import { HeadingDivider } from '@/app/components/HeaderDivider/HeaderDivider';
+import { Section } from '@/app/components/Section';
+import { AboutMeFeatures } from '@/app/components/AboutMeFeatures';
 
 interface AboutMeProps {
   name: string;
@@ -8,17 +8,7 @@ interface AboutMeProps {
 }
 
 const AboutMe: React.FC<AboutMeProps> = ({ name, bio }) => {
-  return (
-    <Container>
-      <HeadingDivider title="About Me" />
-      <Card shadow="sm" padding="lg">
-        <Text size="xl" w={700} style={{ marginBottom: '1rem' }}>
-          {name}
-        </Text>
-        <Text>{bio}</Text>
-      </Card>
-    </Container>
-  );
+  return <Section title="About Me"></Section>;
 };
 
 export default AboutMe;

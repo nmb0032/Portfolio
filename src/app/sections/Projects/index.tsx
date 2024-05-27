@@ -1,19 +1,8 @@
 import React from 'react';
-import { Card, Container, Text } from '@mantine/core';
-import { HeadingDivider } from '@/app/components/HeaderDivider/HeaderDivider';
+import { Section } from '@/app/components/Section';
 
 const Projects = () => {
-  return (
-    <Container>
-      <HeadingDivider title="Projects" />
-      <Card shadow="sm" padding="lg">
-        <Text size="xl" w={700} style={{ marginBottom: '1rem' }}>
-          {''}
-        </Text>
-        <Text>{''}</Text>
-      </Card>
-    </Container>
-  );
+  return <Section title="Projects"></Section>;
 };
 
 export default Projects;
