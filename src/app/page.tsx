@@ -1,26 +1,25 @@
-import Image from 'next/image';
-import AboutMe from '@/app/sections/AboutMe';
-import Projects from './sections/Projects';
 import Technologies from './sections/Technologies';
+import { Element } from 'react-scroll';
 import { Hero } from './sections/Hero';
 import { Hobbies } from './sections/Hobbies';
 import { Contact } from './sections/Contact';
+import { ScrollSection } from './components/ScrollSection';
 
 export default function Home() {
   return (
     <>
-      <section>
+      <ScrollSection name="hero">
         <Hero />
-      </section>
-      <section>
+      </ScrollSection>
+      <ScrollSection name="technologies">
         <Technologies />
-      </section>
-      <section>
+      </ScrollSection>
+      <ScrollSection name="hobbies">
         <Hobbies />
-      </section>
-      <section>
+      </ScrollSection>
+      <ScrollSection name="contact">
         <Contact />
-      </section>
+      </ScrollSection>
     </>
   );
 }

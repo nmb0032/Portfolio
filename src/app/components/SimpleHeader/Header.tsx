@@ -12,15 +12,15 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Header.module.css';
 import { ThemeButton } from '../ThemeButton';
+import { Link } from 'react-scroll';
 
 const headShot = '/images/head_shot.JPG';
 
 const links = [
-  { link: '/about', label: 'Home' },
-  { link: '/pricing', label: 'Technologies' },
-  { link: '/learn', label: 'Hobbies' },
-  { link: '/community', label: 'Aspirations' },
-  { link: '/contact', label: 'Contact' },
+  { link: 'hero', label: 'Home' },
+  { link: 'technologies', label: 'Technologies' },
+  { link: 'hobbies', label: 'Hobbies' },
+  { link: 'contact', label: 'Contact' },
 ];
 
 export function Header() {
@@ -28,19 +28,20 @@ export function Header() {
   const [active, setActive] = useState(links[0].link);
 
   const items = links.map((link) => (
-    <a
-      key={link.label}
-      href={link.link}
+    <Link
+      key={link.link}
+      to={link.link}
+      smooth={true}
+      duration={500}
       className={classes.link}
       data-active={active === link.link || undefined}
-      onClick={(event) => {
-        event.preventDefault();
+      onClick={() => {
         setActive(link.link);
         close();
       }}
     >
       {link.label}
-    </a>
+    </Link>
   ));
 
   return (
