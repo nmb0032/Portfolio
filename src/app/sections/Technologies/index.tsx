@@ -39,18 +39,73 @@ const items = [
     description: 'A JavaScript library for building user interfaces',
     url: '/images/react-logo.svg',
   },
+  {
+    title: 'Node',
+    description: 'A JavaScript runtime built on Chrome’s V8 JavaScript engine',
+    url: '/images/node-logo.svg',
+  },
+  {
+    title: 'Postgres',
+    description: 'A powerful, open-source object-relational database system',
+    url: '/images/postgres-logo.svg',
+  },
+  {
+    title: 'Docker',
+    description: 'A platform for building, sharing, and running applications',
+    url: '/images/docker-logo.svg',
+  },
+  {
+    title: 'GIT',
+    description: 'A distributed version-control system for tracking changes',
+    url: '/images/git-logo.svg',
+  },
+  {
+    title: 'Prisma',
+    description: 'A modern database ORM for TypeScript & Node.js',
+    url: '/images/prisma-logo.svg',
+  },
+  {
+    title: 'Next Js',
+    description: 'A React framework for production web applications',
+    url: '/images/next-logo.svg',
+  },
+  {
+    title: 'Angular Js',
+    description: 'A platform and framework for building web applications',
+    url: '/images/angular-logo.svg',
+  },
+  {
+    title: 'Rust',
+    description: 'A systems programming language that runs blazingly fast',
+    url: '/images/rust-logo.svg',
+  },
+  {
+    title: 'Spring Boot',
+    description: 'An open-source Java-based framework',
+    url: '/images/spring-boot-logo.svg',
+  },
+  {
+    title: 'Verilog',
+    description:
+      'A hardware description language used to model electronic systems',
+    url: '/images/verilog-logo.svg',
+  },
 ];
 
 const Technologies: React.FC = () => {
   return (
-    <Section title="Technologies">
-      <SimpleGrid cols={5}>
+    <Section title="Technologies I Use">
+      <SimpleGrid
+        style={{ justifyItems: 'center' }}
+        cols={{ base: 2, sm: 3, md: 5, lg: 6 }}
+      >
         {items.map((item) => (
           <Tooltip key={item.title} label={item.description}>
             <Card
               shadow="sm"
               padding="xl"
               style={{
+                maxWidth: rem(175),
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',

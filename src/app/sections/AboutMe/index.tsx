@@ -1,6 +1,5 @@
 import React from 'react';
 import { Section } from '@/app/components/Section';
-import { AboutMeFeatures } from '@/app/components/AboutMeFeatures';
 
 interface AboutMeProps {
   name: string;

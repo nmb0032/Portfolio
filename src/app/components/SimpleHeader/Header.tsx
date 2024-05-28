@@ -16,10 +16,11 @@ import { ThemeButton } from '../ThemeButton';
 const headShot = '/images/head_shot.JPG';
 
 const links = [
-  { link: '/about', label: 'About Me' },
-  { link: '/pricing', label: 'My Projects' },
-  { link: '/learn', label: 'Posts' },
-  { link: '/community', label: 'Technologies' },
+  { link: '/about', label: 'Home' },
+  { link: '/pricing', label: 'Technologies' },
+  { link: '/learn', label: 'Hobbies' },
+  { link: '/community', label: 'Aspirations' },
+  { link: '/contact', label: 'Contact' },
 ];
 
 export function Header() {

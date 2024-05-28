@@ -14,7 +14,7 @@ export function HeadingDivider({ title = '' }: HeadingDividerProps) {
         <Title
           order={1}
           className="title"
-          style={{ textTransform: 'uppercase' }}
+          style={{ textAlign: 'center', textTransform: 'uppercase' }}
         >
           {title}
         </Title>

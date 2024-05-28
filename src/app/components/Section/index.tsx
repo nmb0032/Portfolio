@@ -5,13 +5,18 @@ import { HeadingDivider } from '@/app/components/HeaderDivider/HeaderDivider';
 export interface SectionProps {
   title: string;
   children?: ReactNode;
+  margin?: string;
 }
 
-export const Section: React.FC<SectionProps> = ({ title, children }) => {
+export const Section: React.FC<SectionProps> = ({
+  title,
+  children,
+  margin,
+}) => {
   return (
     <Container fluid>
       <HeadingDivider title={title} />
-      <Box m="sm">{children}</Box>
+      <Box m={margin ?? 'lg'}>{children}</Box>
     </Container>
   );
 };
