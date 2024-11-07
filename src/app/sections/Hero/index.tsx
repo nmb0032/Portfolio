@@ -6,6 +6,8 @@ import {
   ThemeIcon,
   Grid,
   rem,
+  Box,
+  Container,
 } from '@mantine/core';
 import {
   IconFileCode,
@@ -61,7 +63,7 @@ const items = features.map((feature) => (
 
 export function Hero() {
   return (
-    <div className={classes.wrapper}>
+    <Container size={'lg'}>
       <Grid gutter={80}>
         <GridCol span={{ base: 12, md: 5 }}>
           <Title className={classes.title} order={2}>
@@ -83,6 +85,6 @@ export function Hero() {
           </SimpleGrid>
         </GridCol>
       </Grid>
-    </div>
+    </Container>
   );
 }

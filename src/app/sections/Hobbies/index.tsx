@@ -3,8 +3,6 @@ import {
   Card,
   CardSection,
   Group,
-  Badge,
-  Button,
   Image,
   Text,
   SimpleGrid,

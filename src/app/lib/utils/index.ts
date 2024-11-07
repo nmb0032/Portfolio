@@ -8,3 +8,7 @@ export function getColorSchemeCookie(): MantineColorScheme {
     (getCookie(ThemeCookieName, { cookies }) as MantineColorScheme) ?? 'auto'
   );
 }
+
+export function isoStringToLocalDate(isoString: string): string {
+  return new Date(isoString).toLocaleDateString();
+}

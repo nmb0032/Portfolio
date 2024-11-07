@@ -1,3 +1,11 @@
 .title {
   color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
 }
+
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x:hidden
+}

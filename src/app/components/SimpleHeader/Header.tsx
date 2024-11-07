@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import {
   Container,
   Group,
@@ -12,31 +12,31 @@ import {
 import { useDisclosure } from '@mantine/hooks';
 import classes from './Header.module.css';
 import { ThemeButton } from '../ThemeButton';
-import { Link } from 'react-scroll';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
 
 const headShot = '/images/head_shot.JPG';
 
 const links = [
-  { link: 'hero', label: 'Home' },
-  { link: 'technologies', label: 'Technologies' },
-  { link: 'hobbies', label: 'Hobbies' },
-  { link: 'contact', label: 'Contact' },
+  { link: '/home', label: 'Home' },
+  { link: '/technologies', label: 'Technologies' },
+  { link: '/hobbies', label: 'Hobbies' },
+  { link: '/contact', label: 'Contact' },
+  { link: '/blog', label: 'Blog' },
 ];
 
 export function Header() {
+  const path = usePathname();
   const [opened, { toggle, close }] = useDisclosure(false);
-  const [active, setActive] = useState(links[0].link);
 
   const items = links.map((link) => (
     <Link
+      prefetch
       key={link.link}
-      to={link.link}
-      smooth={true}
-      duration={500}
+      href={link.link}
       className={classes.link}
-      data-active={active === link.link || undefined}
+      data-active={path.includes(link.link) || undefined}
       onClick={() => {
-        setActive(link.link);
         close();
       }}
     >
