@@ -1,5 +1,5 @@
 export const redirects = {
-  home: '/home',
+  home: '/',
   blog: '/blog',
   hobbies: '/hobbies',
   contact: '/contact',

@@ -1,29 +1,26 @@
 'use client';
-import { useEffect, useState } from 'react';
-import {
-  Container,
-  Group,
-  Burger,
-  Title,
-  Avatar,
-  Box,
-  Drawer,
-} from '@mantine/core';
+import { usePathname } from 'next/navigation';
 import { useDisclosure } from '@mantine/hooks';
+import Link from 'next/link';
+import { Box, Group, Avatar, Title, Burger, Drawer } from '@mantine/core';
 import classes from './Header.module.css';
 import { ThemeButton } from '../ThemeButton';
-import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
 
-const headShot = '/images/head_shot.JPG';
+const HEAD_SHOT = '/images/head_shot.JPG' as const;
 
 const links = [
-  { link: '/home', label: 'Home' },
-  { link: '/technologies', label: 'Technologies' },
+  { link: '/', label: 'Home' },
   { link: '/hobbies', label: 'Hobbies' },
   { link: '/contact', label: 'Contact' },
   { link: '/blog', label: 'Blog' },
 ];
+
+function determineActiveLink(path: string, link: string) {
+  if (path === '/' || link === '/') {
+    return path === link;
+  }
+  return path.includes(link);
+}
 
 export function Header() {
   const path = usePathname();
@@ -35,7 +32,7 @@ export function Header() {
       key={link.link}
       href={link.link}
       className={classes.link}
-      data-active={path.includes(link.link) || undefined}
+      data-active={determineActiveLink(path, link.link) || undefined}
       onClick={() => {
         close();
       }}
@@ -45,10 +42,14 @@ export function Header() {
   ));
 
   return (
-    <header className={classes.header}>
+    <header
+      className={classes.header}
+      role="navigation"
+      aria-label="Main Navigation"
+    >
       <Box className={classes.inner}>
         <Group>
-          <Avatar src={headShot} />
+          <Avatar src={HEAD_SHOT} alt="User Avatar" />
           <Title className="title" order={3}>
             @Nmb0032
           </Title>

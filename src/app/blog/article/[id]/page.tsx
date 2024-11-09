@@ -110,15 +110,21 @@ export default async function Page({ params }: { params: { id: string } }) {
 
   return (
     <Container size={'sm'}>
-      <Group justify="space-between">
+      <Group gap={0} justify="space-between">
         <Box>
-          <Title>{page.title}</Title>
+          <Title order={2}>{page.title}</Title>
           <Text size="sm" c="dimmed">
             {`Published on
             ${isoStringToLocalDate(page._firstPublishedAt)}`}
           </Text>
         </Box>
-        <Button variant="subtle" component="a" href={redirects.blog}>
+        <Button
+          p={0}
+          miw={115}
+          variant="subtle"
+          component="a"
+          href={redirects.blog}
+        >
           Back to Posts
         </Button>
       </Group>

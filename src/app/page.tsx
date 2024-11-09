@@ -1,6 +1,5 @@
-import { redirect } from 'next/navigation';
-import { redirects } from './lib/constants/redirects';
+import { Hero } from '@/app/sections/Hero';
 
 export default function page() {
-  redirect(redirects.home);
+  return <Hero />;
 }
