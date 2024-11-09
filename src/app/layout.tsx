@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
 import { Box, ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { Header } from './components/SimpleHeader/Header';
 import { SimpleFooter } from './components/SimpleFooter/SimpleFooter';
@@ -44,6 +45,7 @@ export default function RootLayout({
             </Box>
           </IsClientProvider>
         </MantineProvider>
+        <Analytics />
       </body>
     </html>
   );
