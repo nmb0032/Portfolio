@@ -52,9 +52,9 @@ export default async function Page({ params }: { params: { id: string } }) {
    * Thanks to gql.tada, the result will be fully typed!
    */
   const query: TadaDocumentNode = graphql(
-    /* GraphQL */ `
-      query BasicPageQuery {
-        page(filter: {id: {eq: ${params.id}}}) {
+    `
+      query {
+        page(filter: {id: {eq: "${params.id}"}}) {
           _seoMetaTags {
             ...TagFragment
           }
@@ -83,7 +83,7 @@ export default async function Page({ params }: { params: { id: string } }) {
                 __typename
               }
               ... on PageRecord {
-                title
+          title
               }
             }
           }
