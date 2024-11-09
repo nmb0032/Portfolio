@@ -14,6 +14,7 @@ export const ThemeButton = () => {
     <Tooltip label="Toggle Color Scheme">
       <ActionIcon
         size={'lg'}
+        aria-label="Toggle color scheme"
         value={colorScheme === 'dark' ? 'dark' : 'light'}
         onClick={toggleColorScheme}
         variant="subtle"

@@ -9,3 +9,7 @@ html, body {
   flex-direction: column;
   overflow-x:hidden
 }
+
+footer {
+  max-height: 88px; 
+}

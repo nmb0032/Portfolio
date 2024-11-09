@@ -37,7 +37,9 @@ export default function RootLayout({
                 height: '100%',
               }}
             >
-              <Box style={{ flexGrow: 1 }}>{children}</Box>
+              <Box role="main" style={{ flexGrow: 1 }}>
+                {children}
+              </Box>
               <SimpleFooter />
             </Box>
           </IsClientProvider>
