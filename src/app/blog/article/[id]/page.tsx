@@ -9,7 +9,6 @@ import { VideoBlockFragment } from '@/app/components/blocks/VideoBlock';
 import { redirects } from '@/app/lib/constants/redirects';
 import { TagFragment } from '@/app/lib/datocms/commonFragments';
 import { executeQuery } from '@/app/lib/datocms/executeQuery';
-import { generateMetadataFn } from '@/app/lib/datocms/generateMetadataFn';
 import { graphql } from '@/app/lib/datocms/graphql';
 import { isoStringToLocalDate } from '@/app/lib/utils';
 import {
