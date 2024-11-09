@@ -119,6 +119,7 @@ export default async function Page({ params }: { params: { id: string } }) {
           </Text>
         </Box>
         <Button
+          aria-label="Back to Posts"
           p={0}
           miw={115}
           variant="subtle"

@@ -20,6 +20,7 @@ export const Contact: React.FC = () => {
         <Text style={{ textAlign: 'center' }}>Find me on</Text>
         <Group mt={'md'} style={{ justifyContent: 'center' }}>
           <ActionIcon
+            aria-label="My Linkedin Account"
             component="a"
             href="https://www.linkedin.com/in/nicholas-belvin-9738181ab/"
             variant={'gradient'}
@@ -29,6 +30,7 @@ export const Contact: React.FC = () => {
             <IconBrandLinkedin />
           </ActionIcon>
           <ActionIcon
+            aria-label="My GitHub Account"
             component="a"
             href="https://github.com/nmb0032"
             variant={'gradient'}

@@ -1,10 +1,11 @@
 import { Container, Group, Anchor, Text } from '@mantine/core';
 import classes from './SimpleFooter.module.css';
+import { redirects } from '@/app/lib/constants/redirects';
 
 const links = [
-  { link: '#', label: 'Contact' },
-  { link: '#', label: 'Privacy' },
-  { link: '#', label: 'Blog' },
+  { link: redirects.contact, label: 'Contact' },
+  { link: redirects.privacy, label: 'Privacy' },
+  { link: redirects.blog, label: 'Blog' },
 ];
 
 export function SimpleFooter() {

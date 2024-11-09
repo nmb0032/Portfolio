@@ -15,10 +15,10 @@ export const theme = createTheme({
       '#A0A0A0',
       '#808080',
       '#606060',
-      '#505050', // Adjusted to ensure contrast
-      '#404040', // Adjusted to ensure contrast
-      '#303030', // Adjusted to ensure contrast
-      '#202020', // Adjusted to ensure contrast
+      '#404040',
+      '#303030',
+      '#202020',
+      '#101010',
       '#000000', // True black shade
     ],
   },

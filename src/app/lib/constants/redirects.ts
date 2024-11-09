@@ -4,5 +4,6 @@ export const redirects = {
   hobbies: '/hobbies',
   contact: '/contact',
   technologies: '/technologies',
+  privacy: '/privacy',
   notFound: '/notFound',
 } as const;
