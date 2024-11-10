@@ -10,6 +10,7 @@ const HEAD_SHOT = '/images/head_shot.JPG' as const;
 
 const links = [
   { link: '/', label: 'Home' },
+  { link: '/technologies', label: 'Technologies' },
   { link: '/hobbies', label: 'Hobbies' },
   { link: '/contact', label: 'Contact' },
   { link: '/blog', label: 'Blog' },
