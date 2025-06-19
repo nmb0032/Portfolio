@@ -11,7 +11,7 @@ export default function Loading() {
         height: '100vh',
       }}
     >
-      <Loader size={'lg'} />
+      <Loader size={'sm'} />
     </Box>
   );
 }

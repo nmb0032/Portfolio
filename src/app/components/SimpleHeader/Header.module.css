@@ -20,7 +20,7 @@
 .link {
   display: block;
   line-height: 1;
-  padding: rem(8px) rem(12px);
+  padding: rem(12px) rem(18px);
   border-radius: var(--mantine-radius-sm);
   text-decoration: none;
   color: light-dark(var(--mantine-color-light-0), var(--mantine-color-white));

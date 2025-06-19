@@ -55,12 +55,12 @@ export function Header() {
             @Nmb0032
           </Title>
         </Group>
-        <Group gap={5} visibleFrom="xs">
+        <Group gap={5} visibleFrom="md">
           {items}
         </Group>
         <Group>
           <ThemeButton />
-          <Burger opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
+          <Burger opened={opened} onClick={toggle} hiddenFrom="md" size="sm" />
         </Group>
       </Box>
       <Drawer opened={opened} onClose={close} title="@Nmb0032">
