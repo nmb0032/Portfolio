@@ -4,8 +4,18 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  border-bottom: rem(1px) solid
-    light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4));
+  /* border-bottom: rem(1px) solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-4)); */
+  /* REMOVED the border-bottom */
+
+  /* ADDED box-shadow for a lifted effect */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), /* Subtle top shadow for lift */
+              0 2px 4px -1px rgba(0, 0, 0, 0.06); /* Slightly stronger bottom shadow */
+}
+
+[data-mantine-color-scheme='dark'] .header {
+    box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.4), /* Primary dark shadow */
+    0 0 15px rgba(255, 255, 255, 0.05); /* Subtle white glow */
 }
 
 .inner {

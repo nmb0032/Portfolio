@@ -81,3 +81,31 @@ pre[data-rehype-pretty-code-fragment] .line[data-highlighted-line] {
   font-family: 'Fira Code', 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
   font-size: 0.85em;
 }
+
+/* globals.css */
+
+.lift-on-hover {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
+}
+
+.lift-on-hover:hover {
+  transform: translateY(-5px); /* Moves the element up by 5px */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
+}
+
+/* Example for a button */
+.button-lift-on-hover {
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  /* Add any other button styles like padding, background, etc. */
+  padding: 10px 20px;
+  background-color: #0070f3;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.button-lift-on-hover:hover {
+  transform: translateY(-3px); /* Slightly less lift for buttons */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
