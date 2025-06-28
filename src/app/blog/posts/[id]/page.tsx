@@ -40,7 +40,7 @@ export default async function PostPage({ params }: PostPageProps) {
         <Title order={1} style={{ marginTop: 0, marginBottom: '10px' }}>
           {postData.title}
         </Title>
-        <Text size="sm" color="dimmed" mt="md">
+        <Text size="sm" c="dimmed" mt="md">
           {postData.date}
           {postData.author && (
             <>

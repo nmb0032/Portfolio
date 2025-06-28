@@ -5,7 +5,6 @@ import {
   Card,
   Container,
   Text,
-  Group, // Group is not explicitly used here but good to keep if needed elsewhere
   Title,
   CardSection,
   rem,
@@ -14,10 +13,11 @@ import {
 import Image from 'next/image';
 import { getSortedPostsData } from '@/app/lib/utils/posts'; // Adjust path if necessary
 import { isoStringToLocalDate } from '@/app/lib/utils';
+import { Metadata } from 'next';
 
-export const metadata = {
-  title: "Nick's Blog",
-  description: 'All about my adventure',
+export const metadata: Metadata = {
+  title: `Nick's Portfolio | Blog`,
+  description: 'Learn about my adventures and experience in the tech industry.',
 };
 
 export default async function Blog() {

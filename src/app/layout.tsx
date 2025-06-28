@@ -8,6 +8,7 @@ import { IsClientProvider } from './providers/client-provider';
 import { theme } from '@/app/theme';
 
 import '@/app/globals.css';
+import { ProgressProvider } from '@/app/providers/progress-provider';
 
 export const metadata: Metadata = {
   title: `Nick's Portfolio`,
@@ -28,22 +29,24 @@ export default function RootLayout({
       </head>
       <body>
         <MantineProvider theme={theme} defaultColorScheme={colorScheme}>
-          <IsClientProvider>
-            <Header />
-            <Box
-              mt={'lg'}
-              display={'flex'}
-              style={{
-                flexDirection: 'column',
-                height: '100%',
-              }}
-            >
-              <Box role="main" style={{ flexGrow: 1 }}>
-                {children}
+          <ProgressProvider>
+            <IsClientProvider>
+              <Header />
+              <Box
+                mt={'lg'}
+                display={'flex'}
+                style={{
+                  flexDirection: 'column',
+                  height: '100%',
+                }}
+              >
+                <Box role="main" style={{ flexGrow: 1 }}>
+                  {children}
+                </Box>
+                <SimpleFooter />
               </Box>
-              <SimpleFooter />
-            </Box>
-          </IsClientProvider>
+            </IsClientProvider>
+          </ProgressProvider>
         </MantineProvider>
         <Analytics />
       </body>

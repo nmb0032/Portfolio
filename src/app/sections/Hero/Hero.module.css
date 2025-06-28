@@ -8,3 +8,20 @@
   margin-bottom: var(--mantine-spacing-md);
   color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
 }
+
+.wave-emoji {
+    display: inline-block; /* Essential for transform to work on inline elements */
+    animation: wave-animation 2s infinite; /* Apply the animation: name, duration, repetition */
+    transform-origin: 70% 70%; /* Adjust the pivot point for the wave (e.g., bottom-right of the hand) */
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate( 0.0deg) }
+    10% { transform: rotate(14.0deg) } /* The wave */
+    20% { transform: rotate(-8.0deg) }
+    30% { transform: rotate(14.0deg) }
+    40% { transform: rotate(-4.0deg) }
+    50% { transform: rotate(10.0deg) }
+    60% { transform: rotate( 0.0deg) } /* End of wave, return to normal */
+    100% { transform: rotate( 0.0deg) }
+}

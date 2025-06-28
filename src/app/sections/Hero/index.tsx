@@ -6,7 +6,7 @@ import {
   ThemeIcon,
   Grid,
   rem,
-  Box,
+  Box, // Box is imported but not used, consider removing if not needed.
   Container,
 } from '@mantine/core';
 import {
@@ -15,30 +15,30 @@ import {
   IconSailboat,
   IconPresentation,
 } from '@tabler/icons-react';
-import classes from './Hero.module.css';
+import classes from './Hero.module.css'; // Ensure this path is correct for your wave-emoji animation
 
 const features = [
   {
     icon: IconPresentation,
     title: 'Experience',
     description:
-      'With experience at Juvare Inc., Lockheed Martin, and CACI, I have honed my skills in full stack and backend development, working with technologies like Typescript, React, Node.js, and C++',
+      '4+ years as a Senior Software Engineer, leading full-stack development for mission-critical applications and specializing in scalable cloud architectures and large-scale data migrations. ',
   },
   {
     icon: IconFileCode,
     title: 'Skills',
     description:
-      'I am proficient in a wide range of programming languages and frameworks, including Python, Java, C++, Typescript, React, and Angular, and I thrive in agile development environments',
+      'Expert in full-stack (TypeScript, React, Node.js, PostgreSQL) and backend (C++, Java) development, with strong proficiency in AWS (EC2, S3, Lambda, RDS), Kubernetes, Docker, and CI/CD. ',
   },
   {
     icon: IconSailboat,
     title: 'Hobbies',
-    description: `Beyond coding, I enjoy rowing, hiking, and exploring the latest tech trends. I'm also passionate about continuous learning and contributing to open-source projects`,
+    description: `Beyond coding, I enjoy rowing, hiking, and exploring the latest tech trends. I'm also passionate about continuous learning and contributing to open-source projects.`,
   },
   {
     icon: IconSchool,
     title: 'Education',
-    description: `Graduated Summa Cum Laude from Auburn University with a Bachelor's degree in Computer Engineering and a GPA of 3.91`,
+    description: `Graduated Summa Cum Laude from Auburn University with a Bachelor's degree in Computer Engineering and a GPA of 3.91. `,
   },
 ] as const;
 
@@ -67,15 +67,13 @@ export function Hero() {
       <Grid gutter={80}>
         <GridCol span={{ base: 12, md: 5 }}>
           <Title className={classes.title} order={2}>
-            Hi There! 👋
+            Hi There! <span className={classes['wave-emoji']}>👋</span>
           </Title>
           <Text c="dimmed">
-            {` 
-                I'm Nicholas Michael Belvin, a software developer based in
-                Atlanta, GA. With a strong background in full stack
-                development, I thrive on solving complex problems and creating
-                innovative solutions. Outside of coding, I enjoy rowing, hiking, and
-                exploring new tech trends. Welcome to my portfolio!
+            {`
+                I'm Nick, a Senior Software Engineer based in Atlanta, GA. 
+                I specialize in building, scaling, and evolving end-to-end service platforms, with a strong focus on scalable cloud architectures and high-performance data processing. 
+                My passion lies in crafting robust full-stack solutions and delivering truly first-class user experiences. Welcome to my portfolio!
             `}
           </Text>
         </GridCol>

@@ -1,4 +1,11 @@
 import { Box, Container, Title, Text } from '@mantine/core';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: `Nick's Portfolio | Privacy Policy`,
+  description:
+    'Your privacy is important to us. It is our policy to respect your privacy regarding any information we may collect from you across our website, and other sites we own and operate.',
+};
 
 export default function page() {
   return <PrivacyPolicy />;
