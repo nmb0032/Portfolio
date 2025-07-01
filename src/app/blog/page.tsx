@@ -53,6 +53,7 @@ export default async function Blog() {
             {article.image && (
               <CardSection>
                 <Image
+                  quality={60}
                   src={article.image}
                   alt={article.title}
                   height={200}
