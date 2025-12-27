@@ -109,3 +109,90 @@ pre[data-rehype-pretty-code-fragment] .line[data-highlighted-line] {
   transform: translateY(-3px); /* Slightly less lift for buttons */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* Card top border hover effect */
+.lift-on-hover:hover .card-top-border {
+  opacity: 1 !important;
+}
+
+/* Hobby image zoom effect */
+.hobby-image {
+  transition: transform 0.5s ease;
+}
+
+.lift-on-hover:hover .hobby-image {
+  transform: scale(1.1);
+}
+
+/* Blog image zoom effect */
+.blog-image {
+  transition: transform 0.5s ease;
+}
+
+.lift-on-hover:hover .blog-image {
+  transform: scale(1.05);
+}
+
+/* Blog post content styling */
+.blog-post-content {
+  color: var(--mantine-color-text);
+}
+
+.blog-post-content h1,
+.blog-post-content h2,
+.blog-post-content h3,
+.blog-post-content h4,
+.blog-post-content h5,
+.blog-post-content h6 {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.blog-post-content h2 {
+  font-size: 1.75rem;
+  border-bottom: 1px solid var(--mantine-color-dark-6);
+  padding-bottom: 0.5em;
+}
+
+.blog-post-content p {
+  margin-bottom: 1.25em;
+  line-height: 1.8;
+}
+
+.blog-post-content ul,
+.blog-post-content ol {
+  margin-bottom: 1.25em;
+  padding-left: 2em;
+}
+
+.blog-post-content li {
+  margin-bottom: 0.5em;
+  line-height: 1.8;
+}
+
+.blog-post-content a {
+  color: var(--mantine-color-blue-6);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.blog-post-content a:hover {
+  color: var(--mantine-color-blue-5);
+  text-decoration: underline;
+}
+
+.blog-post-content blockquote {
+  border-left: 4px solid var(--mantine-color-blue-6);
+  padding-left: 1em;
+  margin: 1.5em 0;
+  font-style: italic;
+  color: var(--mantine-color-dimmed);
+}
+
+.blog-post-content hr {
+  border: none;
+  border-top: 1px solid var(--mantine-color-dark-6);
+  margin: 2em 0;
+}

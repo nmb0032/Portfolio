@@ -6,15 +6,17 @@ export interface SectionProps {
   title: string;
   children?: ReactNode;
   margin?: string;
+  style?: React.CSSProperties;
 }
 
 export const Section: React.FC<SectionProps> = ({
   title,
   children,
   margin,
+  style,
 }) => {
   return (
-    <Container fluid>
+    <Container fluid style={style}>
       <HeadingDivider title={title} />
       <Box m={margin ?? 'lg'}>{children}</Box>
     </Container>

@@ -1,10 +1,15 @@
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
-import { Box, ColorSchemeScript, MantineProvider } from '@mantine/core';
+import {
+  ColorSchemeScript,
+  mantineHtmlProps,
+  MantineProvider,
+  Box,
+} from '@mantine/core';
 import { Header } from './components/SimpleHeader/Header';
 import { SimpleFooter } from './components/SimpleFooter/SimpleFooter';
-import { getColorSchemeCookie } from './lib/utils';
 import { IsClientProvider } from './providers/client-provider';
+import { SpaceWarpBackground } from './components/SpaceWarpBackground';
 import { theme } from '@/app/theme';
 
 import '@/app/globals.css';
@@ -20,17 +25,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const colorScheme = getColorSchemeCookie();
   return (
-    <html lang="en">
+    <html lang="en" {...mantineHtmlProps}>
       <head>
         <link rel="icon" type="image" href="/public/images/icon.jpg" />
-        <ColorSchemeScript defaultColorScheme={colorScheme} />
+        <ColorSchemeScript defaultColorScheme="dark" />
       </head>
       <body>
-        <MantineProvider theme={theme} defaultColorScheme={colorScheme}>
+        <MantineProvider theme={theme}>
           <ProgressProvider>
             <IsClientProvider>
+              <SpaceWarpBackground />
               <Header />
               <Box
                 mt={'lg'}
@@ -38,6 +43,7 @@ export default function RootLayout({
                 style={{
                   flexDirection: 'column',
                   height: '100%',
+                  paddingTop: 'clamp(5rem, 8vw, 7rem)',
                 }}
               >
                 <Box role="main" style={{ flexGrow: 1 }}>

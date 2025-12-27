@@ -1,21 +1,23 @@
 // app/posts/[id]/page.tsx
 import { FullPostData, getPostData } from '@/app/lib/utils/posts';
-import { Box, Text, Title } from '@mantine/core';
+import { Box, Text, Title, Container, Stack, Badge, rem } from '@mantine/core';
 import { Metadata } from 'next';
+import { IconCalendar, IconUser } from '@tabler/icons-react';
+import { isoStringToLocalDate } from '@/app/lib/utils';
 
 interface PostPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export async function generateMetadata({
   params,
 }: PostPageProps): Promise<Metadata> {
-  const postData = await getPostData(params.id);
+  const postData = await getPostData((await params).id);
 
   return {
-    title: postData.title,
+    title: `${postData.title} | Nick's Portfolio`,
     description: postData.excerpt || '',
     openGraph: {
       images: [
@@ -28,32 +30,70 @@ export async function generateMetadata({
   };
 }
 
-// This component is a Server Component by default
 export default async function PostPage({ params }: PostPageProps) {
-  // Data fetching for a single post
-  // This replaces `getStaticProps` in the Pages Router
-  const postData: FullPostData = await getPostData(params.id);
+  const postData: FullPostData = await getPostData((await params).id);
 
   return (
-    <>
-      <Box mt="md">
-        <Title order={1} style={{ marginTop: 0, marginBottom: '10px' }}>
-          {postData.title}
-        </Title>
-        <Text size="sm" c="dimmed" mt="md">
-          {postData.date}
-          {postData.author && (
-            <>
-              {' '}
-              <span role="separator" aria-hidden="true">
-                |
-              </span>{' '}
-              By {postData.author}
-            </>
-          )}
-        </Text>
-      </Box>
-      <Box mt="md" dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
-    </>
+    <Container size="md" py={{ base: rem(40), md: rem(60) }}>
+      <Stack gap="xl">
+        <Box>
+          <Title
+            order={1}
+            size={rem(42)}
+            mb="lg"
+            style={{
+              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              lineHeight: 1.2,
+            }}
+          >
+            {postData.title}
+          </Title>
+
+          <Box
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: rem(12),
+              flexWrap: 'wrap',
+              paddingBottom: rem(24),
+              borderBottom: '1px solid var(--mantine-color-dark-6)',
+            }}
+          >
+            <Badge
+              variant="light"
+              color="blue"
+              size="lg"
+              leftSection={<IconCalendar size={16} />}
+            >
+              {isoStringToLocalDate(postData.date)}
+            </Badge>
+            {postData.author && (
+              <Badge
+                variant="light"
+                color="cyan"
+                size="lg"
+                leftSection={<IconUser size={16} />}
+              >
+                {postData.author}
+              </Badge>
+            )}
+          </Box>
+        </Box>
+
+        <Box
+          mt="md"
+          className="blog-post-content"
+          style={{
+            fontSize: rem(16),
+            lineHeight: 1.8,
+            color: 'var(--mantine-color-text)',
+          }}
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+        />
+      </Stack>
+    </Container>
   );
 }

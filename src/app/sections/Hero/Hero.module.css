@@ -2,7 +2,6 @@
   font-family:
     Greycliff CF,
     var(--mantine-font-family);
-  font-size: rem(36px);
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: var(--mantine-spacing-md);
@@ -24,4 +23,15 @@
     50% { transform: rotate(10.0deg) }
     60% { transform: rotate( 0.0deg) } /* End of wave, return to normal */
     100% { transform: rotate( 0.0deg) }
+}
+
+.cursor {
+  display: inline-block;
+  animation: blink 1s infinite;
+  margin-left: rem(2);
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
 }
