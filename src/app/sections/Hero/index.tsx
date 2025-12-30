@@ -78,17 +78,6 @@ export function Hero() {
             >
               Let's Connect
             </Button>
-            <Button
-              component="a"
-              href="/resume.pdf"
-              download
-              size="lg"
-              variant="outline"
-              leftSection={<IconDownload size={18} />}
-              className="lift-on-hover"
-            >
-              Download Resume
-            </Button>
           </Group>
         </motion.div>
 
