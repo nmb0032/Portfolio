@@ -37,6 +37,9 @@ export default function GameGrid() {
   const handleMove = useCallback(
     (value: string, x: number, y: number) => {
       const num = parseInt(value, 10);
+      if (Number.isNaN(num)) {
+        return;
+      }
       sudoku.move(num, x, y);
       setGrid(sudoku.grid.map((row) => [...row]));
     },

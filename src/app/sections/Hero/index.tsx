@@ -43,13 +43,13 @@ export function Hero() {
             fw={700}
             mb="lg"
             style={{
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              background: 'var(--gradient-brand)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
             }}
           >
-            I'm Nick Belvin
+            I&apos;m Nick Belvin
           </Title>
           <TypewriterText roles={roles} />
           <Text c="dimmed" size="lg" mt="xl" maw={rem(700)} mx="auto">
@@ -76,7 +76,7 @@ export function Hero() {
               rightSection={<IconArrowRight size={18} />}
               className="lift-on-hover"
             >
-              Let's Connect
+              Let&apos;s Connect
             </Button>
           </Group>
         </motion.div>
@@ -116,8 +116,10 @@ function TypewriterText({ roles }: { roles: string[] }) {
         setDisplayText(currentRole.slice(0, displayText.length - 1));
       }, 50);
     } else if (isDeleting && displayText.length === 0) {
-      setIsDeleting(false);
-      setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+      timeout = setTimeout(() => {
+        setIsDeleting(false);
+        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+      }, 500);
     }
 
     return () => clearTimeout(timeout);
@@ -125,7 +127,7 @@ function TypewriterText({ roles }: { roles: string[] }) {
 
   return (
     <Text size="xl" fw={500} style={{ minHeight: rem(32) }}>
-      <span style={{ color: 'var(--mantine-color-dimmed)' }}>I'm a </span>
+      <span style={{ color: 'var(--mantine-color-dimmed)' }}>I&apos;m a </span>
       <span
         style={{
           color: 'var(--mantine-color-blue-6)',

@@ -8,7 +8,6 @@ import {
 } from '@mantine/core';
 import { Header } from './components/SimpleHeader/Header';
 import { SimpleFooter } from './components/SimpleFooter/SimpleFooter';
-import { IsClientProvider } from './providers/client-provider';
 import { SpaceWarpBackground } from './components/SpaceWarpBackground';
 import { theme } from '@/app/theme';
 
@@ -28,30 +27,27 @@ export default function RootLayout({
   return (
     <html lang="en" {...mantineHtmlProps}>
       <head>
-        <link rel="icon" type="image" href="/public/images/icon.jpg" />
         <ColorSchemeScript defaultColorScheme="dark" />
       </head>
       <body>
         <MantineProvider theme={theme}>
           <ProgressProvider>
-            <IsClientProvider>
-              <SpaceWarpBackground />
-              <Header />
-              <Box
-                mt={'lg'}
-                display={'flex'}
-                style={{
-                  flexDirection: 'column',
-                  height: '100%',
-                  paddingTop: 'clamp(5rem, 8vw, 7rem)',
-                }}
-              >
-                <Box role="main" style={{ flexGrow: 1 }}>
-                  {children}
-                </Box>
-                <SimpleFooter />
+            <SpaceWarpBackground />
+            <Header />
+            <Box
+              mt={'lg'}
+              display={'flex'}
+              style={{
+                flexDirection: 'column',
+                height: '100%',
+                paddingTop: 'clamp(5rem, 8vw, 7rem)',
+              }}
+            >
+              <Box role="main" style={{ flexGrow: 1 }}>
+                {children}
               </Box>
-            </IsClientProvider>
+              <SimpleFooter />
+            </Box>
           </ProgressProvider>
         </MantineProvider>
         <Analytics />
