@@ -1,5 +1,5 @@
 'use client';
-import { redirect, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { useDisclosure } from '@mantine/hooks';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
@@ -111,8 +111,9 @@ export function Header() {
       <Box className={classes.inner}>
         <Group>
           <Avatar
+            component={Link}
+            href={redirects.home}
             style={{ cursor: 'pointer' }}
-            onClick={() => redirect(redirects.home)}
             src={HEAD_SHOT}
             alt="User Avatar"
           />

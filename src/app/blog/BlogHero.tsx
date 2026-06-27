@@ -18,7 +18,7 @@ export function BlogHero() {
             size={rem(48)}
             mb="md"
             style={{
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              background: 'var(--gradient-brand)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
@@ -36,4 +36,3 @@ export function BlogHero() {
     </Container>
   );
 }
-

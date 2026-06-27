@@ -1,8 +1,4 @@
-import {
-  Container,
-  rem,
-  SimpleGrid,
-} from '@mantine/core';
+import { Container, rem, SimpleGrid } from '@mantine/core';
 import { getSortedPostsData } from '@/app/lib/utils/posts';
 import { Metadata } from 'next';
 import { BlogPostCard } from './BlogPostCard';

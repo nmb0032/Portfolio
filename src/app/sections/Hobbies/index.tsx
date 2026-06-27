@@ -72,7 +72,7 @@ export const Hobbies: React.FC = () => {
               size={rem(48)}
               mb="md"
               style={{
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                background: 'var(--gradient-brand)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -131,7 +131,7 @@ function HobbyCard({ hobby, index }: { hobby: Hobby; index: number }) {
             left: 0,
             right: 0,
             height: rem(4),
-            background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
+            background: 'var(--gradient-brand-horizontal)',
             zIndex: 1,
           }}
         />

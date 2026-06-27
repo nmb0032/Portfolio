@@ -5,5 +5,4 @@ export const redirects = {
   contact: '/contact',
   technologies: '/technologies',
   privacy: '/privacy',
-  notFound: '/notFound',
 } as const;

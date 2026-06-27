@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
-import html from 'remark-html'; // You won't directly use this for the final HTML conversion with rehype
+import { notFound } from 'next/navigation';
 import { VFileCompatible } from 'vfile';
 import rehypePrettyCode from 'rehype-pretty-code';
 import remarkRehype from 'remark-rehype'; // Import remark-rehype
@@ -38,17 +38,16 @@ export function getSortedPostsData(): PostData[] {
     } as PostData;
   });
 
-  return allPostsData.sort((a, b) => {
-    if (a.date < b.date) {
-      return 1;
-    } else {
-      return -1;
-    }
-  });
+  return allPostsData.sort(
+    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
+  );
 }
 
 export async function getPostData(id: string): Promise<FullPostData> {
   const fullPath = path.join(postsDirectory, `${id}.md`);
+  if (!fs.existsSync(fullPath)) {
+    notFound();
+  }
   const fileContents = fs.readFileSync(fullPath, 'utf8');
 
   // Use gray-matter to parse the post metadata section
@@ -73,13 +72,9 @@ export async function getPostData(id: string): Promise<FullPostData> {
   } as FullPostData;
 }
 
-export function getAllPostIds(): { params: { id: string } }[] {
+export function getAllPostIds(): { id: string }[] {
   const fileNames = fs.readdirSync(postsDirectory);
-  return fileNames.map((fileName) => {
-    return {
-      params: {
-        id: fileName.replace(/\.md$/, ''),
-      },
-    };
-  });
+  return fileNames.map((fileName) => ({
+    id: fileName.replace(/\.md$/, ''),
+  }));
 }

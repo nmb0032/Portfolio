@@ -64,18 +64,18 @@ export const Contact: React.FC = () => {
               size={rem(48)}
               mb="md"
               style={{
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                background: 'var(--gradient-brand)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
               }}
             >
-              Let's Connect
+              Let&apos;s Connect
             </Title>
             <Text c="dimmed" size="lg" maw={rem(700)} mx="auto">
-              I'm always open to discussing new opportunities, collaborations,
-              or just having a conversation about technology. Feel free to reach
-              out through any of the channels below.
+              I&apos;m always open to discussing new opportunities,
+              collaborations, or just having a conversation about technology.
+              Feel free to reach out through any of the channels below.
             </Text>
           </motion.div>
         </Stack>
@@ -117,9 +117,9 @@ export const Contact: React.FC = () => {
                 Open to Opportunities
               </Text>
               <Text size="sm" c="dimmed" maw={rem(500)} mx="auto">
-                Whether you're looking for a senior software engineer, want to
-                collaborate on a project, or just want to chat about tech, I'd
-                love to hear from you!
+                Whether you&apos;re looking for a senior software engineer, want
+                to collaborate on a project, or just want to chat about tech,
+                I&apos;d love to hear from you!
               </Text>
             </Box>
           </motion.div>
@@ -171,7 +171,7 @@ function ContactCard({
             left: 0,
             right: 0,
             height: rem(4),
-            background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
+            background: 'var(--gradient-brand-horizontal)',
             zIndex: 1,
           }}
         />

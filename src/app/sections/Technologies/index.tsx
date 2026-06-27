@@ -178,7 +178,7 @@ const Technologies: React.FC = () => {
               size={rem(48)}
               mb="md"
               style={{
-                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                background: 'var(--gradient-brand)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
@@ -189,7 +189,7 @@ const Technologies: React.FC = () => {
             <Text c="dimmed" size="lg" maw={rem(700)} mx="auto">
               A comprehensive toolkit for building scalable, modern
               applications. From languages to frameworks, databases to DevOps
-              tools—here's what powers my development workflow.
+              tools—here&apos;s what powers my development workflow.
             </Text>
           </motion.div>
 
@@ -287,7 +287,7 @@ function TechnologyCard({ item, index }: { item: Technology; index: number }) {
               left: 0,
               right: 0,
               height: rem(4),
-              background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
+              background: 'var(--gradient-brand-horizontal)',
               opacity: 0,
               transition: 'opacity 0.3s ease',
             }}

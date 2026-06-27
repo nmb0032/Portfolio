@@ -18,7 +18,7 @@ export function SimpleFooter() {
   return (
     <div role="contentinfo" className={classes.footer}>
       <Container className={classes.inner}>
-        <Text>&copy; 2024 Nicholas Belvin</Text>
+        <Text>&copy; {new Date().getFullYear()} Nicholas Belvin</Text>
         <Group className={classes.links}>{items}</Group>
       </Container>
     </div>

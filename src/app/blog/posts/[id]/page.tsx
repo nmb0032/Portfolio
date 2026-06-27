@@ -1,6 +1,10 @@
 // app/posts/[id]/page.tsx
-import { FullPostData, getPostData } from '@/app/lib/utils/posts';
-import { Box, Text, Title, Container, Stack, Badge, rem } from '@mantine/core';
+import {
+  FullPostData,
+  getPostData,
+  getAllPostIds,
+} from '@/app/lib/utils/posts';
+import { Box, Title, Container, Stack, Badge, rem } from '@mantine/core';
 import { Metadata } from 'next';
 import { IconCalendar, IconUser } from '@tabler/icons-react';
 import { isoStringToLocalDate } from '@/app/lib/utils';
@@ -30,6 +34,10 @@ export async function generateMetadata({
   };
 }
 
+export async function generateStaticParams() {
+  return getAllPostIds();
+}
+
 export default async function PostPage({ params }: PostPageProps) {
   const postData: FullPostData = await getPostData((await params).id);
 
@@ -42,7 +50,7 @@ export default async function PostPage({ params }: PostPageProps) {
             size={rem(42)}
             mb="lg"
             style={{
-              background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+              background: 'var(--gradient-brand)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',

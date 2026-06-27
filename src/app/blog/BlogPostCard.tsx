@@ -62,7 +62,7 @@ export function BlogPostCard({ article, index }: BlogPostCardProps) {
             left: 0,
             right: 0,
             height: rem(4),
-            background: 'linear-gradient(90deg, #667eea 0%, #764ba2 100%)',
+            background: 'var(--gradient-brand-horizontal)',
             zIndex: 1,
           }}
         />
