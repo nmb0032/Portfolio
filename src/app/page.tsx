@@ -54,7 +54,6 @@ const projects: Project[] = [
 export default function Home() {
   return (
     <>
-      <h1>Nick Belvin</h1>
       <p>
         I&apos;m a senior software engineer at Microsoft, based in Atlanta, GA,
         with 5+ years of experience. I work on confidential computing,
