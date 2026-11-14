@@ -1,203 +1,355 @@
 :root {
-  --gradient-brand: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  --gradient-brand-horizontal: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #202020;
+  --muted: #666666;
+  --link: var(--fg);
+  --rule: #d0d0d0;
+  --code-bg: #eeeeee;
+  --sudoku-cell-bg: #ffffff;
+  --sudoku-fixed-bg: #e0e0e0;
+  --sudoku-fixed-fg: #333333;
+  --sudoku-line: #cccccc;
+  --font: 'Lucida Console', Monaco, 'Courier New', monospace;
+  --mono: var(--font);
 }
 
-.title {
-  color: light-dark(var(--mantine-color-black), var(--mantine-color-white));
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b0b0b;
+    --fg: #e5e5e5;
+    --muted: #a3a3a3;
+    --rule: #444444;
+    --code-bg: #242424;
+    --sudoku-cell-bg: #0b0b0b;
+    --sudoku-fixed-bg: #242424;
+    --sudoku-fixed-fg: #e5e5e5;
+    --sudoku-line: #444444;
+  }
 }
 
-html, body {
-  height: 100%;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  overflow-x:hidden
-}
-
-footer {
-  max-height: 88px; 
-}
-
-/* src/app/globals.css */
-
-/* Only customize the 'pre' and 'code' elements */
-pre {
-  /* Common styles for the entire code block container */
-  background-color: #2d2d2d; /* A slightly different dark background for contrast */
-  padding: 1.25em 1.5em; /* More generous padding */
-  border-radius: 8px; /* Slightly rounder corners */
-  margin-top: 2em;
-  margin-bottom: 2em;
-  overflow-x: auto; /* Ensures horizontal scrolling for long lines */
-  font-family: 'Fira Code', 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  font-size: 0.95em;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: 18px;
   line-height: 1.7;
-  color: #ebdbb2; /* A light, warm text color that works well on dark backgrounds */
-
-  /* Optional: Add a subtle border */
-  border: 1px solid rgba(255, 255, 255, 0.1);
-
-  /* Optional: Box shadow for depth */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-
-  /* Ensure the Shiki theme's colors take precedence inside */
-  /* If you want to override a specific token color, you'd target it with its class/data attribute */
 }
 
-/* Ensure the 'code' element inside 'pre' inherits font properties */
-pre code {
-  font-family: inherit;
-  font-size: inherit;
-  line-height: inherit;
+a {
+  color: var(--link);
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
 }
 
-/* If you enabled line numbers in rehypePrettyCode, you'd add this */
-pre[data-line-numbers] {
-  padding-left: 4.5em; /* Make space for line numbers */
-  counter-reset: line; /* Reset counter for each code block */
+a:hover {
+  text-decoration-thickness: 2px;
 }
 
-pre[data-line-numbers] > code > [data-line]::before {
-  counter-increment: line;
-  content: counter(line);
-  display: inline-block;
-  width: 2.5em; /* Adjust width as needed */
-  margin-right: 1.5em; /* Space between number and code */
-  text-align: right;
-  color: rgba(255, 255, 255, 0.3); /* Lighter color for line numbers */
-  user-select: none; /* Prevent selecting line numbers */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
 
-/* If you are using line highlighting */
-pre[data-rehype-pretty-code-fragment] .line[data-highlighted-line] {
-  background-color: rgba(255, 255, 255, 0.08); /* Subtle highlight for selected lines */
-  display: block;
-  margin-inline: -1.5em; /* Extend background to full padding width */
-  padding-inline: 1.5em;
+h1 {
+  font-size: 30px;
+  line-height: 1.3;
+  margin: 0 0 20px;
 }
 
-/* You might want to style inline `code` elements differently */
-:not(pre) > code {
-  background-color: #3e3e3e; /* A slightly lighter background for inline code */
-  color: #f0f0f0;
-  padding: 0.2em 0.4em;
-  border-radius: 4px;
-  font-family: 'Fira Code', 'JetBrains Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
-  font-size: 0.85em;
+h2 {
+  font-size: 22px;
+  line-height: 1.4;
+  margin: 36px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--rule);
 }
 
-/* globals.css */
-
-.lift-on-hover {
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* Smooth transition */
+p {
+  margin: 0 0 20px;
 }
 
-.lift-on-hover:hover {
-  transform: translateY(-5px); /* Moves the element up by 5px */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adds a subtle shadow for depth */
-}
-
-/* Example for a button */
-.button-lift-on-hover {
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  /* Add any other button styles like padding, background, etc. */
-  padding: 10px 20px;
-  background-color: #0070f3;
-  color: white;
-  border: none;
-  border-radius: 5px;
+button {
+  font: inherit;
+  padding: 4px 12px;
+  color: var(--fg);
+  background: var(--bg);
+  border: 1px solid var(--muted);
+  border-radius: 0;
   cursor: pointer;
 }
 
-.button-lift-on-hover:hover {
-  transform: translateY(-3px); /* Slightly less lift for buttons */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+button:hover {
+  background: var(--code-bg);
 }
 
-/* Card top border hover effect */
-.lift-on-hover:hover .card-top-border {
-  opacity: 1 !important;
+.page {
+  width: calc(100% - 48px);
+  max-width: 960px;
+  margin: 56px auto 0;
 }
 
-/* Hobby image zoom effect */
-.hobby-image {
-  transition: transform 0.5s ease;
+.topbar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--rule);
 }
 
-.lift-on-hover:hover .hobby-image {
-  transform: scale(1.1);
+.topbar a {
+  color: var(--muted);
 }
 
-/* Blog image zoom effect */
-.blog-image {
-  transition: transform 0.5s ease;
+.topbar .brand,
+.topbar a.active {
+  color: var(--fg);
 }
 
-.lift-on-hover:hover .blog-image {
-  transform: scale(1.05);
+.topbar .brand {
+  font-size: 22px;
+  font-weight: bold;
 }
 
-/* Blog post content styling */
-.blog-post-content {
-  color: var(--mantine-color-text);
+.topbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
 }
 
-.blog-post-content h1,
-.blog-post-content h2,
-.blog-post-content h3,
-.blog-post-content h4,
-.blog-post-content h5,
-.blog-post-content h6 {
-  margin-top: 2em;
-  margin-bottom: 1em;
-  font-weight: 600;
-  line-height: 1.3;
+.content {
+  padding: 40px 0;
+  overflow-wrap: break-word;
 }
 
-.blog-post-content h2 {
-  font-size: 1.75rem;
-  border-bottom: 1px solid var(--mantine-color-dark-6);
-  padding-bottom: 0.5em;
+.content > :last-child {
+  margin-bottom: 0;
 }
 
-.blog-post-content p {
-  margin-bottom: 1.25em;
-  line-height: 1.8;
+.footer {
+  padding: 24px 0 32px;
+  border-top: 1px solid var(--rule);
+  font-size: 14px;
+  color: var(--muted);
 }
 
-.blog-post-content ul,
-.blog-post-content ol {
-  margin-bottom: 1.25em;
-  padding-left: 2em;
+.footer p {
+  margin-bottom: 8px;
 }
 
-.blog-post-content li {
-  margin-bottom: 0.5em;
-  line-height: 1.8;
+.footer a {
+  color: var(--muted);
 }
 
-.blog-post-content a {
-  color: var(--mantine-color-blue-6);
-  text-decoration: none;
-  transition: color 0.2s ease;
+.subtext {
+  font-size: 14px;
+  color: var(--muted);
 }
 
-.blog-post-content a:hover {
-  color: var(--mantine-color-blue-5);
+.subtext a {
+  color: var(--muted);
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.site {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.items {
+  margin: 0;
+  padding-left: 1.8em;
+}
+
+.items li {
+  margin-bottom: 20px;
+}
+
+.items li::marker {
+  color: var(--muted);
+  font-size: 0.85em;
+}
+
+.item-title {
+  color: var(--fg);
+}
+
+.item-title:visited {
+  color: var(--muted);
+}
+
+.item-title:hover {
   text-decoration: underline;
 }
 
-.blog-post-content blockquote {
-  border-left: 4px solid var(--mantine-color-blue-6);
-  padding-left: 1em;
-  margin: 1.5em 0;
-  font-style: italic;
-  color: var(--mantine-color-dimmed);
+.plain-list {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
 }
 
-.blog-post-content hr {
-  border: none;
-  border-top: 1px solid var(--mantine-color-dark-6);
-  margin: 2em 0;
+.plain-list li {
+  margin: 4px 0;
+}
+
+.bullets {
+  margin: 0 0 20px;
+  padding-left: 1.4em;
+}
+
+.hobby {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 16px 0;
+}
+
+.hobby-img {
+  flex-shrink: 0;
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.hobby h2 {
+  margin-top: 0;
+}
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  .page {
+    width: calc(100% - 32px);
+    margin-top: 28px;
+  }
+
+  .topbar nav {
+    gap: 8px 16px;
+  }
+
+  .content {
+    padding: 32px 0;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .hobby {
+    flex-direction: column;
+  }
+}
+
+.prose {
+  max-width: 70ch;
+  line-height: 1.7;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  margin: 1.6em 0 0.6em;
+  line-height: 1.3;
+}
+
+.prose h1 {
+  font-size: 1.65em;
+}
+
+.prose h2 {
+  font-size: 1.3em;
+}
+
+.prose h3,
+.prose h4 {
+  font-size: 1.1em;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5em;
+}
+
+.prose li {
+  margin-bottom: 4px;
+}
+
+.prose img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 20px 0;
+  border: 1px solid var(--rule);
+}
+
+.prose blockquote {
+  margin: 1em 0;
+  padding-left: 12px;
+  border-left: 1px solid var(--rule);
+  color: var(--muted);
+}
+
+.prose hr {
+  margin: 1.5em 0;
+  border: 0;
+  border-top: 1px solid var(--rule);
+}
+
+.prose table {
+  border-collapse: collapse;
+}
+
+.prose th,
+.prose td {
+  padding: 4px 8px;
+  border: 1px solid var(--rule);
+}
+
+figure[data-rehype-pretty-code-figure] {
+  margin: 1em 0;
+}
+
+pre {
+  overflow-x: auto;
+  padding: 12px;
+  background: #24292e;
+  color: #e1e4e8;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+pre code {
+  font-family: inherit;
+}
+
+:not(pre) > code {
+  padding: 1px 4px;
+  background: var(--code-bg);
+  font-family: var(--mono);
+  font-size: 0.9em;
 }

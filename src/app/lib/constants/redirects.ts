@@ -5,4 +5,5 @@ export const redirects = {
   contact: '/contact',
   technologies: '/technologies',
   privacy: '/privacy',
+  sudoku: '/blog/examples/sudoku',
 } as const;

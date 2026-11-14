@@ -1,32 +1,34 @@
-import { Container, rem, SimpleGrid } from '@mantine/core';
+import type { Metadata } from 'next';
+import Link from 'next/link';
 import { getSortedPostsData } from '@/app/lib/utils/posts';
-import { Metadata } from 'next';
-import { BlogPostCard } from './BlogPostCard';
-import { BlogHero } from './BlogHero';
+import { formatDate } from '@/app/lib/utils';
 
 export const metadata: Metadata = {
-  title: `Nick's Portfolio | Blog`,
+  title: `Nick Belvin | Blog`,
   description:
     'Explore technical articles, tutorials, and insights about software development, algorithms, and modern web technologies.',
 };
 
 export default function Blog() {
-  const allPostsData = getSortedPostsData();
+  const posts = getSortedPostsData();
 
   return (
     <>
-      <BlogHero />
-      <Container size="lg" py="xl">
-        <SimpleGrid
-          cols={{ base: 1, sm: 2, lg: 3 }}
-          spacing="xl"
-          verticalSpacing="xl"
-        >
-          {allPostsData.map((article, index) => (
-            <BlogPostCard key={article.id} article={article} index={index} />
-          ))}
-        </SimpleGrid>
-      </Container>
+      <h1>Blog</h1>
+      <ol className="items">
+        {posts.map((post) => (
+          <li key={post.id}>
+            <Link className="item-title" href={`/blog/posts/${post.id}`}>
+              {post.title}
+            </Link>
+            <div className="subtext">
+              {formatDate(post.date)}
+              {post.author && <> by {post.author}</>}
+              {post.excerpt && <> | {post.excerpt}</>}
+            </div>
+          </li>
+        ))}
+      </ol>
     </>
   );
 }

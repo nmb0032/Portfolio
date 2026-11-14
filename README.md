@@ -1,6 +1,6 @@
 # My Portfolio
 
-Welcome to my open-source portfolio project! This project is built using Next.js 16 with the App Router, Mantine for UI components, and local Markdown files for the blog.
+Welcome to my open-source portfolio project! This project is built using Next.js 16 with the App Router, plain CSS, and local Markdown files for the blog.
 
 ## Getting Started
 
@@ -18,6 +18,10 @@ cd <REPO_NAME>
 ```bash
 pnpm install
 ```
+
+Use pnpm rather than npm for this repository. The `packageManager` field pins
+pnpm 10.33.2, and `pnpm-lock.yaml` is the dependency lockfile. With Corepack
+available, run `corepack enable` if the `pnpm` command is missing.
 
 3. Run the development server:
 
@@ -38,7 +42,7 @@ You can start editing the page by modifying `src/app/page.tsx`. The page auto-up
 ## Features
 
 - **Next.js 16**: Utilizes the latest features of Next.js with the App Router.
-- **Mantine**: A fully featured React components library for building modern web applications.
+- **Plain CSS**: a single `src/app/globals.css`, monochrome light/dark via `prefers-color-scheme`, retro system monospace fonts, no UI library or external font requests.
 - **Markdown Blog**: Blog component powered by local Markdown files in `src/posts` (parsed with gray-matter + remark/rehype).
 
 ## Project Structure
@@ -51,7 +55,6 @@ The project structure is as follows:
     /blog
     /components
     /lib
-    /sections
   /posts
 ```
 
@@ -60,7 +63,6 @@ The project structure is as follows:
 To learn more about the technologies used in this project, take a look at the following resources:
 
 - [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API.
-- [Mantine Documentation](https://mantine.dev/docs/getting-started/) - Learn about Mantine components and usage.
 
 ## Contributing
 

@@ -1,22 +1,22 @@
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/react';
-import {
-  ColorSchemeScript,
-  mantineHtmlProps,
-  MantineProvider,
-  Box,
-} from '@mantine/core';
-import { Header } from './components/SimpleHeader/Header';
-import { SimpleFooter } from './components/SimpleFooter/SimpleFooter';
-import { SpaceWarpBackground } from './components/SpaceWarpBackground';
-import { theme } from '@/app/theme';
+import { Header } from '@/app/components/Header';
+import { Footer } from '@/app/components/Footer';
 
 import '@/app/globals.css';
-import { ProgressProvider } from '@/app/providers/progress-provider';
+
+const designContract = `<!--
+THESIS: A personal portfolio reads like a useful index, not a sales page; it refuses the category's hero-and-card marketing layout.
+OWN-WORLD: Monochrome, text-first pages with a continuous white or near-black ground. Retro console monospace, underlined links, plain lists, and a CSS system light/dark palette.
+STORY: Hiring teams and engineers can quickly scan Nick's background, tools, projects, posts, and contact paths.
+FIRST VIEWPORT: An underlined name above a wrapping text navigation and a thin rule, then Nick's name and experience summary, followed by skills and project entries.
+FORM: Simple personal index with generous spacing, selected directly by the user's screenshot; no concept seed because the brief pins the form.
+-->`;
 
 export const metadata: Metadata = {
-  title: `Nick's Portfolio`,
-  description: 'All about my adventure',
+  title: `Nick Belvin`,
+  description:
+    'Nick Belvin: senior software engineer building confidential computing and attestation services, and full-stack web apps.',
 };
 
 export default function RootLayout({
@@ -25,31 +25,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" {...mantineHtmlProps}>
-      <head>
-        <ColorSchemeScript defaultColorScheme="dark" />
-      </head>
+    <html lang="en">
       <body>
-        <MantineProvider theme={theme}>
-          <ProgressProvider>
-            <SpaceWarpBackground />
-            <Header />
-            <Box
-              mt={'lg'}
-              display={'flex'}
-              style={{
-                flexDirection: 'column',
-                height: '100%',
-                paddingTop: 'clamp(5rem, 8vw, 7rem)',
-              }}
-            >
-              <Box role="main" style={{ flexGrow: 1 }}>
-                {children}
-              </Box>
-              <SimpleFooter />
-            </Box>
-          </ProgressProvider>
-        </MantineProvider>
+        <div className="page">
+          <template
+            data-design-contract
+            dangerouslySetInnerHTML={{ __html: designContract }}
+          />
+          <Header />
+          <main className="content">{children}</main>
+          <Footer />
+        </div>
         <Analytics />
       </body>
     </html>

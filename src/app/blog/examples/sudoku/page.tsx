@@ -1,16 +1,13 @@
 import GameGrid from '@/app/blog/examples/sudoku/gameGrid';
-import { Box } from '@mantine/core';
+import Link from 'next/link';
 
 export default function page() {
   return (
-    <Box
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
+    <>
+      <p className="subtext">
+        <Link href="/blog/posts/sudoku-react-guide">&larr; how this works</Link>
+      </p>
       <GameGrid />
-    </Box>
+    </>
   );
 }

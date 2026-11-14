@@ -53,13 +53,13 @@ export default function GameGrid() {
 
   return (
     <div>
-      <h1>Sudoku Generator</h1>
+      <h1>Sudoku</h1>
       <div
         style={{
           paddingTop: 10,
           paddingBottom: 10,
           display: 'flex',
-          justifyContent: 'space-between',
+          gap: 8,
         }}
       >
         <button onClick={() => handleGeneratePuzzle('easy')}>Easy</button>
@@ -109,15 +109,18 @@ function Cell({
   isPredefined: boolean;
 }) {
   const cellStyle: React.CSSProperties = {
-    height: '50px',
-    width: '50px',
+    height: 'min(50px, 10vw)',
+    width: 'min(50px, 10vw)',
     textAlign: 'center', // Center text horizontally
-    fontSize: '24px', // Larger font size
+    fontSize: 'min(24px, 5vw)', // Larger font size
     fontWeight: isPredefined ? 'bold' : 'normal', // Bold for initial numbers
-    color: isPredefined ? '#333' : '#0056b3', // Different color for user input
-    backgroundColor: isPredefined ? '#e0e0e0' : '#ffffff', // Background for fixed vs. user input
-    border: '1px solid #ccc',
-    outline: 'none', // Remove default input focus outline
+    color: isPredefined ? 'var(--sudoku-fixed-fg)' : 'var(--link)', // Different color for user input
+    backgroundColor: isPredefined
+      ? 'var(--sudoku-fixed-bg)'
+      : 'var(--sudoku-cell-bg)', // Background for fixed vs. user input
+    border: '1px solid var(--sudoku-line)',
+    padding: 0,
+    fontFamily: 'inherit',
     boxSizing: 'border-box', // Ensure padding and border are included in width/height
     cursor: isPredefined ? 'not-allowed' : 'text', // Cursor changes for fixed cells
     WebkitAppearance: 'none', // For webkit browsers (Chrome, Safari)
@@ -126,9 +129,9 @@ function Cell({
 
   const dynamicBorderStyle: React.CSSProperties = {
     borderRightWidth: isRightBorder ? '3px' : '1px',
-    borderRightColor: isRightBorder ? 'black' : '#ccc',
+    borderRightColor: isRightBorder ? 'var(--fg)' : 'var(--sudoku-line)',
     borderBottomWidth: isBottomBorder ? '3px' : '1px',
-    borderBottomColor: isBottomBorder ? 'black' : '#ccc',
+    borderBottomColor: isBottomBorder ? 'var(--fg)' : 'var(--sudoku-line)',
   };
 
   return (
